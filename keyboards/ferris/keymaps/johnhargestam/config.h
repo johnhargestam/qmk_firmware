@@ -32,6 +32,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // The default is 40
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 100
 
+//Tapping this number of times holds the key until tapped once again.
+#define ONESHOT_TAP_TOGGLE 2
+//Time (in ms) before the one shot key is released
+#define ONESHOT_TIMEOUT 5000
+
 // Pick good defaults for enabling homerow modifiers
 #define TAPPING_TERM 200
 #define PERMISSIVE_HOLD
