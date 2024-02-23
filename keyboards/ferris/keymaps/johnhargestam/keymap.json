@@ -6,9 +6,27 @@
   "keymap": "johnhargestam",
   "macros": [
     [
-        { "action": "down", "keycodes": [ "LSFT" ] },
-        "..",
-        { "action": "up", "keycodes": [ "LSFT" ] }
+      { "action": "down", "keycodes": [ "LSFT" ] },
+      "..",
+      { "action": "up", "keycodes": [ "LSFT" ] }
+    ],
+    [
+      { "action": "down", "keycodes": [ "LSFT" ] },
+      "=",
+      { "action": "up", "keycodes": [ "LSFT" ] },
+      " "
+    ],
+    [
+      { "action": "down", "keycodes": [ "LSFT" ] },
+      "]",
+      { "action": "up", "keycodes": [ "LSFT" ] },
+      " "
+    ],
+    [
+      { "action": "down", "keycodes": [ "ALGR" ] },
+      "]",
+      { "action": "up", "keycodes": [ "ALGR" ] },
+      " "
     ]
   ],
   "layout": "LAYOUT_split_3x5_2",
@@ -28,12 +46,12 @@
     ],
     [
       "LSFT(KC_5)"    , "LSFT(KC_7)"    , "KC_NUHS"       , "ALGR(KC_8)"    , "ALGR(KC_4)",
-      "LSFT(KC_EQL)"  , "ALGR(KC_9)"    , "LSFT(KC_2)"    , "ALGR(KC_MINS)" , "ALGR(KC_RBRC)",
+      "QK_MACRO_1"    , "ALGR(KC_9)"    , "LSFT(KC_2)"    , "ALGR(KC_MINS)" , "QK_MACRO_3",
 
       "KC_LBRC"       , "KC_SLSH"       , "LSFT(KC_0)"    , "LSFT(KC_8)"    , "KC_NUBS",
       "LSFT(KC_NUBS)" , "LSFT(KC_9)"    , "KC_QUOT"       , "LSFT(KC_SLSH)" , "KC_SCLN",
 
-      "LSFT(KC_3)"    , "LSFT(KC_NUHS)" , "LSFT(KC_RBRC)" , "ALGR(KC_7)"    , "ALGR(KC_2)",
+      "LSFT(KC_3)"    , "LSFT(KC_NUHS)" , "QK_MACRO_2"    , "ALGR(KC_7)"    , "ALGR(KC_2)",
       "QK_MACRO_0"    , "ALGR(KC_0)"    , "ALGR(KC_NUBS)" , "LSFT(KC_6)"    , "LSFT(KC_1)",
 
       "KC_TRNS"       , "KC_TRNS",      
