@@ -29,6 +29,12 @@
       " "
     ]
   ],
+  "config": {
+    "oneshot": {
+      "tap_toggle": 2,
+      "timeout": 5000
+    }
+  },
   "layout": "LAYOUT_split_3x5_2",
   "layers": [
     [
@@ -54,9 +60,9 @@
       "LSFT(KC_3)"    , "LSFT(KC_NUHS)" , "QK_MACRO_2"    , "ALGR(KC_7)"    , "ALGR(KC_2)",
       "QK_MACRO_0"    , "ALGR(KC_0)"    , "ALGR(KC_NUBS)" , "LSFT(KC_6)"    , "LSFT(KC_1)",
 
-      "KC_TRNS"       , "KC_TRNS",      
-      "KC_TRNS"       , "OSL(2)"      
-    ],        
+      "KC_TRNS"       , "KC_TRNS",
+      "KC_TRNS"       , "OSL(2)"
+    ],
     [
       "KC_NO"         , "KC_7"          , "KC_8"          , "KC_9"          , "KC_NO",
       "KC_DOWN"       , "KC_RGHT"       , "KC_DEL"        , "KC_LGUI"       , "KC_NO",
