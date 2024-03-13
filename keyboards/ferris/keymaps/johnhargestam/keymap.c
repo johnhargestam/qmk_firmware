@@ -1,6 +1,8 @@
 #include QMK_KEYBOARD_H
 #include "sendstring_swedish.h"
 
+#define _____ KC_NO
+
 enum keycodes {
     // Undead versions of dead keys
     UD_CIRC = SAFE_RANGE,
@@ -12,7 +14,7 @@ enum keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[0] = LAYOUT_split_3x5_2(
-    SE_Q,    SE_W,    SE_F,    SE_P,    SE_B,    SE_J,    SE_L,     SE_U,    SE_Y,    KC_NO,
+    SE_Q,    SE_W,    SE_F,    SE_P,    SE_B,    SE_J,    SE_L,     SE_U,    SE_Y,    _____,
     SE_A,    SE_R,    SE_S,    SE_T,    SE_G,    SE_M,    SE_N,     SE_E,    SE_I,    SE_O,
     SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_K,    SE_H,     SE_COMM, SE_DOT,  SE_PLUS,
                                OSL(1),  KC_LSFT, KC_SPC,  OSL(2)
@@ -24,10 +26,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                KC_TRNS, KC_TRNS, KC_TRNS, OSL(2)
   ),
 	[2] = LAYOUT_split_3x5_2(
-    KC_NO,   SE_7,    SE_8,    SE_9,    KC_NO,   KC_DOWN, KC_RGHT, KC_DEL,  KC_LGUI, KC_NO,
-    SE_0,    SE_1,    SE_2,    SE_3,    KC_NO,   KC_TAB,  KC_ESC,  KC_BSPC, KC_LCTL, CW_TOGG,
-    KC_NO,   SE_4,    SE_5,    SE_6,    KC_NO,   KC_UP,   KC_LEFT, KC_ENT,  KC_LALT, KC_NO,
-                               OSL(1),  KC_TRNS, KC_TRNS, KC_TRNS
+    _____,  SE_7,    SE_8,    SE_9,     _____,   KC_DOWN, KC_RGHT, KC_DEL,  KC_LGUI, _____,
+    SE_0,   SE_1,    SE_2,    SE_3,     _____,   KC_TAB,  KC_ESC,  KC_BSPC, KC_LCTL, CW_TOGG,
+    _____,  SE_4,    SE_5,    SE_6,     _____,   KC_UP,   KC_LEFT, KC_ENT,  KC_LALT, _____,
+                              OSL(1),   KC_TRNS, KC_TRNS, KC_TRNS
     ),
 };
 
