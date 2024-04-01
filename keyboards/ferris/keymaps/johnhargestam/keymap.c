@@ -2,6 +2,7 @@
 
 #include "sendstring_swedish.h"
 #include "oneshot.h"
+#include "swapper.h"
 
 #define _____ KC_NO
 #define FN_CWIN A(KC_F4)
@@ -39,6 +40,8 @@ enum keycodes {
   OS_CTRL,
   OS_ALT,
   OS_CMD,
+
+  CY_WIN,  // Cycle windows (alt-tab)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -62,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 	[FUN] = LAYOUT_split_3x5_2(
     KC_PSCR, KC_INS,  KC_TAB,  OS_CMD,  FN_CWIN, KC_DOWN, KC_RGHT, KC_DEL,  DM_REC1, DM_REC2,
-    _____,   _____,   KC_ENT,  OS_CTRL, KC_HOME, KC_END,  KC_ESC,  KC_BSPC, DM_PLY1, DM_PLY2,
+    _____,   CY_WIN,  KC_ENT,  OS_CTRL, KC_HOME, KC_END,  KC_ESC,  KC_BSPC, DM_PLY1, DM_PLY2,
     KC_BRK,  CW_TOGG, QK_REP,  OS_ALT,  FN_TSKM, KC_UP,   KC_LEFT, QK_AREP, DM_RSTP, QK_RBT,
                                LA_FUN,  KC_TRNS, KC_TRNS, LA_NAV
   ),
@@ -86,7 +89,9 @@ bool is_oneshot_cancel_key(uint16_t keycode) {
 bool is_oneshot_ignored_key(uint16_t keycode) {
     switch (keycode) {
     case LA_SYM:
+    case LA_NUM:
     case LA_FUN:
+    case LA_NAV:
     case OS_SHFT:
     case OS_CTRL:
     case OS_ALT:
@@ -97,12 +102,31 @@ bool is_oneshot_ignored_key(uint16_t keycode) {
     }
 }
 
+bool is_swapper_ignored_key(uint16_t keycode) {
+    switch (keycode) {
+    case LA_SYM:
+    case LA_NUM:
+    case LA_FUN:
+    case LA_NAV:
+        return true;
+    default:
+        return false;
+    }
+}
+
+bool sw_win_active = false;
+
 oneshot_state os_shft_state = os_up_unqueued;
 oneshot_state os_ctrl_state = os_up_unqueued;
 oneshot_state os_alt_state = os_up_unqueued;
 oneshot_state os_cmd_state = os_up_unqueued;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+
+  update_swapper(
+    &sw_win_active, KC_LALT, KC_TAB, CY_WIN,
+    keycode, record
+  );
 
   update_oneshot(
     &os_shft_state, KC_LSFT, OS_SHFT,
