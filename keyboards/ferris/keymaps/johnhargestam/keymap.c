@@ -33,6 +33,7 @@ enum keycodes {
   UD_TILD,
 
   // Macros
+  MC_EMOJ,
   MC_SCOP,
 
   // oneshot mods.
@@ -46,7 +47,7 @@ enum keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[DEF] = LAYOUT_split_3x5_2(
-    SE_Q,    SE_W,    SE_F,    SE_P,    SE_B,    SE_J,    SE_L,    SE_U,    SE_Y,    _____,
+    SE_Q,    SE_W,    SE_F,    SE_P,    SE_B,    SE_J,    SE_L,    SE_U,    SE_Y,    MC_EMOJ,
     SE_A,    SE_R,    SE_S,    SE_T,    SE_G,    SE_M,    SE_N,    SE_E,    SE_I,    SE_O,
     SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_K,    SE_H,    SE_COMM, SE_DOT,  SE_PLUS,
                                LA_FUN,  OS_SHFT, KC_SPC,  LA_SYM
@@ -71,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [NAV] = LAYOUT_split_3x5_2(
     KC_MUTE, KC_VOLD, KC_VOLU, _____,   KC_WH_D, KC_MS_D, KC_MS_R, FN_DSKR, FN_CDSK, KC_PGDN,
-    FN_SDSK, _____,   KC_ACL1, KC_BTN1, KC_WH_L, KC_WH_R, KC_BTN2, KC_ACL0, KC_ACL2, FN_SNIP,
+    KC_ACL2, KC_ACL1, KC_ACL0, KC_BTN1, KC_WH_L, KC_WH_R, KC_BTN2, _____,   FN_SDSK, FN_SNIP,
     KC_MPRV, KC_MNXT, KC_MPLY, KC_BTN3, KC_WH_U, KC_MS_U, KC_MS_L, FN_DSKL, FN_ODSK, KC_PGUP,
                                LA_FUN,  KC_TRNS, KC_TRNS, LA_NAV
   ),
@@ -158,6 +159,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
       case MC_SCOP:
         SEND_STRING("::");
+        return false;
+      case MC_EMOJ:
+        SEND_STRING(":)");
         return false;
     }
   }

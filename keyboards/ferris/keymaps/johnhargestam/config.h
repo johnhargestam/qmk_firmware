@@ -3,7 +3,6 @@
 #define ONESHOT_TIMEOUT 5000
 #define ONESHOT_TAP_TOGGLE 2
 
-/*
 // Set the mouse settings to a comfortable speed/accuracy trade-off,
 // assuming a screen refresh rate of 60 Htz or higher
 // The default is 50. This makes the mouse ~3 times faster and more accurate
@@ -19,7 +18,6 @@
 #define MOUSEKEY_WHEEL_INTERVAL 50
 // The default is 40
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 100
-*/
 
 /*
 #define MOUSEKEY_DELAY          0
